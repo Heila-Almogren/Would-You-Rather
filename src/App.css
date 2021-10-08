@@ -1,38 +1,439 @@
-.App {
-  text-align: center;
+* {
+  font-family: "Baskerville";
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+a { text-decoration: none }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar {
+  background-color: #ffcc00;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border: solid black;
+  width: 100%;
+  height: 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+}
+
+.navbar_item {
+
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  cursor: pointer;
+
+}
+
+.signInDiv {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+
+.createQuestionDiv {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 250px;
+  margin-top: -150px;
+  margin-left: -200px;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+
+.QuestionsList {
+  position: absolute;
+  top: 30%;
+
+  left: 50%;
+  width: 400px;
+  height: fit-content;
+  margin-top: -150px;
+  margin-left: -200px;
+
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding-bottom: 10px
+}
+
+
+.QuestionResultsDiv {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: fit-content;
+  margin-top: -150px;
+  margin-left: -200px;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding-bottom: 10px
+}
+
+.card_holding_image {
+  width: 30%
+}
+
+.createAQuestionLabel {
+  font-size: 20px
+}
+
+.welcome, .createAQestionLabel, .activeTab {
+  background: #F3F3F3;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 5px
+}
+
+.tabsRow {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid lightgray;
+}
+
+.pollDiv {
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  width: 90%;
+  height: 170px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 0px
+}
+
+.pollDivRow {
+  display: flex;
+  justify-content: space-between;
+  height: 80%;
+  margin: 0px;
+}
+
+.avatarDiv, .pollOverviewDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  width: 50%;
+
+}
+
+.pollOverviewDiv {
+
+  height: 60%;
+  margin: auto;
+  text-align: left;
+  border-left: 1px solid lightgray;
+  padding: 7px;
+
+}
+
+.textWrap {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 150px;
+}
+
+.viewPollButton {
+  background-color: white;
+  border: 2px solid #ffcc00;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none
+}
+
+
+.asks {
+  height: fit-content;
+  margin: 0;
+  padding: 10px;
+  text-align: left;
+  font-style: italic
+}
+
+.avatarImg {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: auto
+
+}
+
+.tab {
+  width: 50%;
+  margin: 10px;
+  padding: 5px;
+  cursor: pointer
+}
+
+.SignIn_label {
+  font-weight: bold;
+}
+
+.signIn_Button {
+  background: #ffcc00;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none
+}
+
+.signIn_Button:hover, .submitButton:hover, .viewPollButton:hover {
+  background: #FFE57D;
+}
+
+.choiceInput {
+  outline: none;
+  width: 90%;
+  border: 1px solid lightgray;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px
+}
+
+.submitButton {
+  background-color: #ffcc00;
+  border: none;
+  width: 95%;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none
+}
+
+.pollBarDiv {
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: #F5F5F5;
+}
+
+.selectedOption {
+  border: 1px solid darkseagreen;
+  background-color: #E6FFE6;
+}
+
+.selectedBar {
+  background-color: darkseagreen;
+}
+
+.splitter {
+  display: flex;
+  flex-direction: row
+}
+
+.tick {
+  color: darkseagreen
+}
+
+.pollBar {
+  width: 100%;
+  background-color: lightgrey;
+  border-radius: 5px
+}
+
+.percentage {
+  color: white;
+  background-color: darkseagreen;
+
+  border-radius: 5px;
+  text-align: center
+}
+
+.outOf {
+  width: 100%;
+  height: 5px;
+  margin: 5px;
+  font-size: 12px;
+}
+
+
+/**/
+.LeaderBoardMember {
+
+  width: 400px;
+  height: fit-content;
+  margin-top: 20px;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+}
+
+.score {
+  text-align: center;
+  border: 2px solid #F5F5F5;
+  margin: auto;
+  border-radius: 10px;
+  padding: 15px
+}
+
+.scoreNum {
+  border-radius: 50%;
+  background-color: darkseagreen;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: bold;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.stat {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.LeaderBoardName {
+  font-size: 20px;
+  margin: 0px;
+  width: 100%;
+  text-align: left;
+}
+
+.LeaderBoardAvatar {
+  text-align: center;
+  border-right: 1px solid #F5F5F5
+}
+
+.LeaderBoardTable {
+  margin: auto;
+  width: 95%;
+  vertical-align: center
+}
+
+.scoreTD {
+  text-align: center;
+  padding: 10px
+}
+
+.borderBottom {
+  border-bottom: 1px solid  #F5F5F5
+}
+
+
+.LeaderBoardList{
+  position: absolute;
+  top: 30%;
+
+  left: 50%;
+  width: 400px;
+  height: fit-content;
+  margin-top: -150px;
+  margin-left: -200px;
+
+  text-align: center;
+}
+
+
+.PollPicker {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 400px;
+  height: fit-content;
+  margin-top: -150px;
+  margin-left: -200px;
+  text-align: center;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+
+.pickerTable {
+  margin: auto;
+  width: 95%;
+  vertical-align: center
+}
+
+.PickerAvatar{
+  text-align: center;
+  border-right: 1px solid #F5F5F5
+}
+
+.wouldYouRather {
+  font-size: 20px;
+  margin: 0px;
+  width: 100%;
+  text-align: left;
+}
+
+.option {
+  width: 90%;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  font-size: 15px;
+  padding-left: 10px
+}
+
+.option:hover {
+  background-color: darkseagreen;
+  border-radius: 5px;
+}
+
+.PickerSubmit {
+  border: none;
+  outline: none;
+  background-color: #ffcc00;
+  height: 30px;
+  width: 50%;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  margin-left: -20px;
+}
+
+.logoutButton {
+  outline: none;
+  border: none;
+   background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
