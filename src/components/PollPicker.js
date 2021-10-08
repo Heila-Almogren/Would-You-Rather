@@ -1,10 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
-
 import '../App.css'
-import PollBox from "./PollBox";
-import LeaderBoardBox from "./LeaderBoardBox";
-import {handleAddQuestion, handleAnswerQuestion} from "../actions/questions";
+import {handleAnswerQuestion} from "../actions/questions";
 import {Redirect} from "react-router-dom";
 
 
@@ -42,19 +39,9 @@ class PollPicker extends React.Component {
 
     }
 
-    /*
-    <Redirect to={{
-                    pathname: `/poll/${id}`,
-                    state: {...this.props}
-                }}/>
-            }
-
-
-     */
-
     render() {
 
-        const {question, id, author} = this.props
+        const {question, author} = this.props
         const {toPoll} = this.state
 
         if (toPoll === true) {
@@ -70,7 +57,9 @@ class PollPicker extends React.Component {
                                 <div className="avatarDiv">
                                     <img
                                         className="avatarImg"
-                                        src={author.avatarURL}/>
+                                        src={author.avatarURL}
+                                        alt="avatar"
+                                    />
                                 </div>
                             </td>
                             <td></td>

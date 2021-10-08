@@ -2,11 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {handleSignInUser} from "../actions/auth";
 import Select from "react-select";
-import {Link} from "react-router-dom";
-// import {useCallback} from 'react';
-// import {useHistory} from 'react-router-dom';
-// import {Router, Route,HashRouter} from 'react-router-dom';
-import PropTypes from 'prop-types';
+
 
 class SignIn extends React.Component {
 
@@ -23,7 +19,7 @@ class SignIn extends React.Component {
 
     render() {
 
-        const {users, options} = this.props
+        const {options} = this.props
 
 
 

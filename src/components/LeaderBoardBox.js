@@ -1,14 +1,7 @@
 import React from "react";
-import {connect} from "react-redux";
-
 import '../App.css'
-import {Link} from "react-router-dom";
-
 
 class LeaderBoardBox extends React.Component {
-
-
-
 
     render() {
 
@@ -36,6 +29,7 @@ class LeaderBoardBox extends React.Component {
                                         case 1: return (<span>&#129351;</span>);
                                         case 2: return (<span>&#x1f948;</span>);
                                         case 3: return (<span>&#129353;</span>);
+                                        default: return
                                     }
                             })()
 

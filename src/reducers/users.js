@@ -1,6 +1,6 @@
 
 import {RECEIVE_DATA} from "../actions/shared";
-import {SIGNIN_USER} from "../actions/users";
+
 import {ANSWER_QUESTION} from "../actions/questions";
 
 

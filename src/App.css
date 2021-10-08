@@ -437,3 +437,18 @@ a { text-decoration: none }
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+.fof {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 500px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -250px;
+}
+
+.map_img {
+  height: 200px;
+}

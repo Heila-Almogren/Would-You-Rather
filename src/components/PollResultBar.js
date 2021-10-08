@@ -1,8 +1,7 @@
 import React from "react";
-import {connect} from "react-redux";
+
 
 import '../App.css'
-import {Link} from "react-router-dom";
 
 
 class PollResultBar extends React.Component {

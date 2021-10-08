@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 
 import '../App.css'
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 
 class PollBox extends React.Component {
@@ -39,7 +39,7 @@ class PollBox extends React.Component {
 
 
         if (toResult === true) {
-            return <Redirect to={`/poll/${question.id}`}/>
+            return <Redirect to={`/questions/${question.id}`}/>
         }
 
         return (

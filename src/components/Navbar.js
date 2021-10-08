@@ -1,8 +1,8 @@
 import React from "react";
 import '../App.css'
-import {Link, NavLink, Redirect} from "react-router-dom";
+import {NavLink, Redirect} from "react-router-dom";
 import {connect} from "react-redux";
-import {handleSignInUser, handleSignOutUser} from "../actions/auth";
+import {handleSignOutUser} from "../actions/auth";
 
 
 
@@ -45,7 +45,7 @@ class Navbar extends React.Component{
 
 
 
-            <NavLink to="/ConnectedCreateQuestion" className="navbar_item">
+            <NavLink to="/add" className="navbar_item">
                 <div >
                     New Question
                 </div>
@@ -53,7 +53,7 @@ class Navbar extends React.Component{
 
 
 
-            <NavLink to="/ConnectedLeaderBoardList" className="navbar_item">
+            <NavLink to="/leaderboard" className="navbar_item">
                 <div>
                     Leader Board
                 </div>

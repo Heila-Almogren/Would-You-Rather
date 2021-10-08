@@ -5,15 +5,15 @@ import {handleInitialData} from "../actions/shared";
 // import ConnectedTodos from './Todos'
 // import ConnectedGoals from './Goals'
 import ConnectedCreateQuestion from './CreatePoll'
-import ConnectedPollsList from './PollsList'
 import ConnectedNavbar from "./Navbar";
 import ConnectedHome from "./Home";
-import {Link, Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import ConnectedSignIn from "./SignIn";
 import PollResult from "./PollResult";
 import ConnectedLeaderBoardList from "./LeaderBoardList";
 import PollPicker from "./PollPicker";
 import LoadingSpinner from "./LoadingSpinner";
+import NotFound from "./NotFound";
 
 
 
@@ -33,12 +33,26 @@ class App extends React.Component {
         }
 
 
+        if(auth==null){
+            return <ConnectedSignIn/>
+        }
+
+
+
+
         return (
             <div>
 
                 <ConnectedNavbar>
 
                 </ConnectedNavbar>
+
+
+
+
+
+
+                <Switch>
                 <Route exact path='/' render={() => (
                     <ConnectedHome/>
                 )} />
@@ -51,17 +65,21 @@ class App extends React.Component {
 
 
 
-                <Route path='/ConnectedCreateQuestion' render={({ history }) => (
+                <Route path='/add' render={({ history }) => (
                     <ConnectedCreateQuestion/>
                 )} />
 
 
-                <Route path='/ConnectedLeaderBoardList' render={({ history }) => (
+                <Route path='/leaderboard' render={({ history }) => (
                     <ConnectedLeaderBoardList/>
                 )} />
 
-                <Route path='/poll/:id' component={PollResult} />
-                <Route path='/answer/:id' component={PollPicker} />
+                <Route exact path='/questions/:question_id' component={PollResult} />
+                <Route exact path='/answer/:id' component={PollPicker} />
+
+                <Route component={NotFound} />
+
+                </Switch>
             </div>
         )
     }

@@ -3,8 +3,7 @@ import {connect} from "react-redux";
 
 import '../App.css'
 import PollBox from "./PollBox";
-import loading from "../reducers/loading";
-import LoadingSpinner from "./LoadingSpinner";
+
 
 
 const unanswered = "unanswered";
@@ -47,25 +46,25 @@ class PollsList extends React.Component {
                 </div>
 
                 {
-                    this.state.tab === unanswered &&(
-                        unanswered_questions.length === 0?
-                        <p>Ops! No questions here 👀</p>:
-                        unanswered_questions.map(question => {
-                            return <PollBox id={question.id} key={question.id}/>
-                        })
+                    this.state.tab === unanswered && (
+                        unanswered_questions.length === 0 ?
+                            <p>Ops! No questions here 👀</p> :
+                            unanswered_questions.map(question => {
+                                return <PollBox id={question.id} key={question.id}/>
+                            })
                     )
 
 
                 }
 
                 {
-                    this.state.tab === answered &&(
+                    this.state.tab === answered && (
 
-                        answered_questions.length === 0?
-                            <p>Ops! No questions here 👀</p>:
-                        answered_questions.map(question => {
-                            return <PollBox id={question.id} key={question.id}/>
-                        })
+                        answered_questions.length === 0 ?
+                            <p>Ops! No questions here 👀</p> :
+                            answered_questions.map(question => {
+                                return <PollBox id={question.id} key={question.id}/>
+                            })
                     )
 
                 }
@@ -88,6 +87,10 @@ export default connect((state, props) => {
                 return !Object.keys(auth.answers).includes(question.id)
 
             })
+            .sort(function (Q1, Q2) {
+                return Q2.timestamp - Q1.timestamp;
+            })
+
 
         const answered_questions = Object.keys(state.questions)
             .map(question => {
@@ -96,6 +99,9 @@ export default connect((state, props) => {
             .filter(question => {
                 return Object.keys(auth.answers).includes(question.id)
 
+            })
+            .sort(function (Q1, Q2) {
+                return Q2.timestamp - Q1.timestamp;
             })
 
         return {

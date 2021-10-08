@@ -2,7 +2,6 @@ import React from "react";
 import {connect} from "react-redux";
 
 import '../App.css'
-import PollBox from "./PollBox";
 import LeaderBoardBox from "./LeaderBoardBox";
 
 
